@@ -9,7 +9,7 @@ services:
       - /usr/local/etc/v2ray:/usr/local/etc/v2ray
     ports:
       - "443:443"
-    # command: ["v2ray","-config=https://xxx.com"]
+    command: ["v2ray","-config=${V2RAY_SERVER_CONF}"]
 
   v2scar:
     container_name: v2scar
@@ -21,5 +21,5 @@ services:
       - v2ray
     environment:
       V2SCAR_SYNC_TIME: 60
-      V2SCAR_API_ENDPOINT: ""
+      V2SCAR_API_ENDPOINT: "${V2RAY_USER_CONF}"
       V2SCAR_GRPC_ENDPOINT: "v2ray:8080"
