@@ -6,7 +6,7 @@ services:
     container_name: v2ray
     restart: always
     volumes:
-      - /usr/local/etc/v2ray:/usr/local/etc/v2ray
+      - ../cfcert:/usr/local/etc/v2ray
     ports:
       - "443:443"
     command: ["v2ray","-config=${V2RAY_SERVER_CONF}"]
