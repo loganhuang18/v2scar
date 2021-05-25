@@ -10,7 +10,9 @@ services:
     ports:
       - "443:443"
     command: ["v2ray","-config=${V2RAY_SERVER_CONF}"]
-
+    logging:
+      options:
+        max-size: 10m
   v2scar:
     container_name: v2scar
     image: fgo987/v2scar:1.0
@@ -23,3 +25,6 @@ services:
       V2SCAR_SYNC_TIME: 60
       V2SCAR_API_ENDPOINT: "${V2RAY_USER_CONF}"
       V2SCAR_GRPC_ENDPOINT: "v2ray:8080"
+    logging:
+      options:
+        max-size: 10m
